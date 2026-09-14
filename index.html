@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuxeWash | Premium Laundry & Dry Cleaning Services</title>
+  <meta name="description" content="Experience hassle-free laundry and dry cleaning with 24-hour doorstep pickup and delivery. Eco-friendly cleaning, crisp steam ironing, and delicate fabric care.">
+  <meta name="keywords" content="laundry service, dry cleaning, steam ironing, wash and fold, doorstep laundry, eco-friendly dry clean">
+  <meta property="og:title" content="LuxeWash - Premium Laundry & Dry Cleaning">
+  <meta property="og:description" content="Doorstep laundry and dry cleaning delivered in 24 hours. Book online in seconds!">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%22 100%22><text y=%22.9em%22 font-size=%2290%22>🫧</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Production Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Ambient Glowing Background -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-bubble bubble-1"></div>
+    <div class="ambient-bubble bubble-2"></div>
+    <div class="ambient-bubble bubble-3"></div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="#hero" class="brand-logo">
+          <div class="brand-icon">
+            <i class="fas fa-soap"></i>
+          </div>
+          <div class="brand-name">Luxe<span>Wash</span></div>
+        </a>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#why-us" class="nav-link">Why Us</a></li>
+          <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="cart-trigger-btn" onclick="scrollToSection('services')" title="View Cart">
+            <i class="fas fa-shopping-bag"></i>
+            <span>Cart</span>
+            <span class="cart-badge" id="navCartCount">0</span>
+          </button>
+
+          <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleDarkMode()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left Column -->
+          <div class="hero-content">
+            <div class="hero-pill">
+              <i class="fas fa-sparkles"></i> <span>#1 Eco-Friendly Laundry in Town</span>
+            </div>
+            <h1 class="hero-title">
+              Revitalize Your Clothes with <span class="gradient-text">Master Care & 24h Delivery</span>
+            </h1>
+            <p class="hero-desc">
+              From delicate bridal couture and bespoke suits to your daily wash & fold. We pick up from your doorstep, sanitize with organic detergents, and return garments pristine & wrinkle-free.
+            </p>
+            <div class="hero-actions">
+              <button class="btn-primary" onclick="scrollToSection('services')">
+                <i class="fas fa-calendar-check"></i> Book a Pickup Today
+              </button>
+              <button class="btn-secondary" onclick="scrollToSection('how-it-works')">
+                <i class="fas fa-circle-play"></i> See How It Works
+              </button>
+            </div>
+            <div class="hero-trust-bar">
+              <div class="trust-item">
+                <i class="fas fa-shield-check"></i> 100% Fabric Safe
+              </div>
+              <div class="trust-item">
+                <i class="fas fa-truck-fast"></i> Free Pickup & Delivery
+              </div>
+              <div class="trust-item">
+                <i class="fas fa-clock-rotate-left"></i> 24h Turnaround
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column / Visual -->
+          <div class="hero-visual-wrapper">
+            <div class="hero-image-card">
+              <img src="img/washing-machine-and-laundry-laundry-sticker-png.png" alt="Eco washing machine cleaning laundry effortlessly">
+            </div>
+
+            <!-- Floating Badges -->
+            <div class="floating-stat-badge badge-top-right">
+              <div class="stat-icon green">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="stat-details">
+                <h4>4.9 / 5.0 Rating</h4>
+                <p>Over 1,200+ Verified Reviews</p>
+              </div>
+            </div>
+
+            <div class="floating-stat-badge badge-bottom-left">
+              <div class="stat-icon blue">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <div class="stat-details">
+                <h4>Express Service</h4>
+                <p>Ready in as fast as 6 Hours</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS STATS BAR -->
+    <section class="achievements-section">
+      <div class="container">
+        <div class="achievements-card">
+          <div class="achievements-grid">
+            <div class="achievement-box">
+              <div class="achieve-icon"><i class="fas fa-shirt"></i></div>
+              <h2>15+</h2>
+              <p>Specialized Services</p>
+            </div>
+            <div class="achievement-box">
+              <div class="achieve-icon"><i class="fas fa-users"></i></div>
+              <h2>12,500+</h2>
+              <p>Happy Customers</p>
+            </div>
+            <div class="achievement-box">
+              <div class="achieve-icon"><i class="fas fa-truck-ramp-box"></i></div>
+              <h2>99.4%</h2>
+              <p>On-Time Deliveries</p>
+            </div>
+            <div class="achievement-box">
+              <div class="achieve-icon"><i class="fas fa-award"></i></div>
+              <h2>5+ Years</h2>
+              <p>Excellence in Fabric Care</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Seamless Process</span>
+          <h2 class="section-title">How LuxeWash Works</h2>
+          <p class="section-subtitle">Fresh, sanitized laundry delivered to your door in 4 simple steps.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-number">01</span>
+            <div class="step-icon-wrap"><i class="fas fa-mouse-pointer"></i></div>
+            <h3>Select Services</h3>
+            <p>Choose your garment cleaning, wash & fold, or steam press options right here online.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">02</span>
+            <div class="step-icon-wrap"><i class="fas fa-box-archive"></i></div>
+            <h3>We Collect</h3>
+            <p>Our friendly valet collects your laundry bag at your chosen time slot directly from your doorstep.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">03</span>
+            <div class="step-icon-wrap"><i class="fas fa-wand-magic-sparkles"></i></div>
+            <h3>Expert Washing</h3>
+            <p>Items are sorted by fabric type and washed using gentle eco-detergents and temperature-calibrated steam.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">04</span>
+            <div class="step-icon-wrap"><i class="fas fa-door-open"></i></div>
+            <h3>Doorstep Return</h3>
+            <p>Garments arrive crisp, neatly folded, hung on hangers, and ready to wear within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES & BOOKING SECTION -->
+    <section class="booking-section" id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Easy Online Booking</span>
+          <h2 class="section-title">Our Services & Interactive Cart</h2>
+          <p class="section-subtitle">Click "Add" on desired services, adjust quantities, choose your slot, and confirm your pickup.</p>
+        </div>
+
+        <div class="booking-layout">
+          <!-- Left: Services Catalog -->
+          <div class="catalog-column">
+            <!-- Category Filter Tabs -->
+            <div class="service-categories">
+              <button class="category-tab active" data-category="all">All Services</button>
+              <button class="category-tab" data-category="dry-clean">Dry Cleaning</button>
+              <button class="category-tab" data-category="daily-wash">Daily Wash & Fold</button>
+              <button class="category-tab" data-category="ironing">Steam Press</button>
+              <button class="category-tab" data-category="premium">Luxury & Leather</button>
+              <button class="category-tab" data-category="linens">Blankets & Home</button>
+            </div>
+
+            <!-- Dynamic Services Grid -->
+            <div class="service-grid" id="serviceCatalog">
+              <!-- Rendered via script.js -->
+            </div>
+          </div>
+
+          <!-- Right: Cart & Booking Form -->
+          <div class="booking-panel">
+            <!-- Cart Box -->
+            <div class="cart-card">
+              <div class="card-header">
+                <h3><i class="fas fa-cart-shopping"></i> Your Selected Items</h3>
+                <button class="clear-cart-btn" onclick="clearCart()">Clear All</button>
+              </div>
+
+              <!-- Empty Cart Placeholder -->
+              <div class="empty-cart-view" id="emptyCartView">
+                <i class="fas fa-basket-shopping"></i>
+                <p>Your laundry basket is empty.</p>
+                <small style="color: var(--text-muted);">Select any service above to add it to your order.</small>
+              </div>
+
+              <!-- Cart List -->
+              <ul class="cart-items-list" id="cartItemsList">
+                <!-- Dynamically populated -->
+              </ul>
+
+              <!-- Promo Code Input -->
+              <div class="coupon-box">
+                <input type="text" id="couponCodeInput" class="coupon-input" placeholder="Coupon Code (e.g. WELCOME20)">
+                <button type="button" class="coupon-btn" onclick="applyCoupon()">Apply</button>
+              </div>
+
+              <!-- Express Delivery Checkbox -->
+              <div class="express-checkbox-row">
+                <label for="expressDeliveryCheck">
+                  <input type="checkbox" id="expressDeliveryCheck">
+                  <span>⚡ Express 6-Hour Delivery</span>
+                </label>
+                <span>+ ₹99</span>
+              </div>
+
+              <!-- Price Breakdown -->
+              <div class="price-summary">
+                <div class="summary-row">
+                  <span>Subtotal</span>
+                  <span id="summarySubtotal">₹0</span>
+                </div>
+                <div class="summary-row" id="summaryDiscountRow" style="display: none; color: var(--accent-emerald);">
+                  <span>Promo Discount</span>
+                  <span id="summaryDiscount">- ₹0</span>
+                </div>
+                <div class="summary-row">
+                  <span>Pickup & Delivery</span>
+                  <span id="summaryDelivery">₹0</span>
+                </div>
+                <div class="summary-row" id="summaryExpressRow" style="display: none; color: var(--accent-amber);">
+                  <span>Express Surcharge</span>
+                  <span>+ ₹99</span>
+                </div>
+                <div class="summary-row total-row">
+                  <span>Total Payable</span>
+                  <span id="summaryGrandTotal">₹0</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Booking Details Form -->
+            <div class="form-card">
+              <div class="card-header">
+                <h3><i class="fas fa-clipboard-user"></i> Schedule Pickup</h3>
+              </div>
+
+              <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+                <div class="form-grid">
+                  <div class="input-group">
+                    <label for="custName">Full Name *</label>
+                    <input type="text" id="custName" placeholder="e.g. Ayush Sharma" required>
+                  </div>
+
+                  <div class="input-row">
+                    <div class="input-group">
+                      <label for="custEmail">Email Address (For Confirmation) *</label>
+                      <input type="email" id="custEmail" placeholder="your.name@gmail.com" required>
+                    </div>
+                    <div class="input-group">
+                      <label for="custPhone">Phone Number *</label>
+                      <input type="tel" id="custPhone" placeholder="10-digit mobile number" required>
+                    </div>
+                  </div>
+
+                  <div class="input-row">
+                    <div class="input-group">
+                      <label for="pickupDate">Pickup Date *</label>
+                      <input type="date" id="pickupDate" required>
+                    </div>
+                    <div class="input-group">
+                      <label for="pickupSlot">Preferred Time Slot *</label>
+                      <select id="pickupSlot" required>
+                        <option value="Morning (8:00 AM - 11:00 AM)">Morning (8:00 AM - 11:00 AM)</option>
+                        <option value="Afternoon (1:00 PM - 4:00 PM)">Afternoon (1:00 PM - 4:00 PM)</option>
+                        <option value="Evening (6:00 PM - 9:00 PM)">Evening (6:00 PM - 9:00 PM)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="input-group">
+                    <label for="pickupAddress">Pickup Address & House / Flat No. *</label>
+                    <textarea id="pickupAddress" rows="2" placeholder="Full doorstep address with nearby landmark..." required></textarea>
+                  </div>
+
+                  <div class="input-group">
+                    <label for="orderNotes">Special Instructions (Optional)</label>
+                    <input type="text" id="orderNotes" placeholder="e.g. Handle silk jacket with extra care, ring bell twice">
+                  </div>
+
+                  <button type="submit" class="btn-book-submit" id="btnBookSubmit">
+                    <i class="fas fa-paper-plane"></i> Confirm & Schedule Pickup
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US (QUALITY SECTION) -->
+    <section class="quality-section" id="why-us">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Why Choose Us</span>
+          <h2 class="section-title">The LuxeWash Advantage</h2>
+          <p class="section-subtitle">We treat every garment like an investment, using hospital-grade hygiene and advanced fabric care.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-box">
+            <div class="feature-icon-wrap"><i class="fas fa-droplet-slash"></i></div>
+            <h3>Eco-Friendly Solvents</h3>
+            <p>We use gentle bio-detergents that protect delicate fabrics, safeguard vibrant colors, and leave zero chemical odor.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrap"><i class="fas fa-stopwatch"></i></div>
+            <h3>Prompt Turnaround</h3>
+            <p>Get standard orders delivered back within 24 hours. Need it faster? Opt for our 6-hour express rush service.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrap"><i class="fas fa-envelope-circle-check"></i></div>
+            <h3>Email & SMS Receipts</h3>
+            <p>Instant digital confirmation directly to your Gmail with order tracking ID, itemized bill, and pickup details.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrap"><i class="fas fa-tags"></i></div>
+            <h3>Transparent Pricing</h3>
+            <p>No hidden surprise fees. Clear per-kg and per-item rates with free doorstep delivery on all orders over ₹499.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Customer Love</span>
+          <h2 class="section-title">What Our Clients Say</h2>
+          <p class="section-subtitle">Over 12,000 garments handled every month with 5-star perfection.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="rating-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "I sent my heavy wedding sherwani and blazer for dry cleaning. They removed stubborn turmeric stains without harming the intricate embroidery. Unbelievable service!"
+            </p>
+            <div class="client-profile">
+              <div class="client-avatar">RK</div>
+              <div class="client-info">
+                <h4>Rohit Kapoor</h4>
+                <span>Verified Customer • South Delhi</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="rating-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "The scheduled pickup was right on time, and the confirmation email came immediately to my Gmail with the exact receipt. Everything came back crisp and smelling fresh."
+            </p>
+            <div class="client-profile">
+              <div class="client-avatar">PS</div>
+              <div class="client-info">
+                <h4>Pooja Sharma</h4>
+                <span>Corporate Executive • Cyber Hub</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="rating-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "Weekly wash & fold subscriber for 8 months now. Saves me 4 hours every weekend. The clothes are folded like hotel linen. Couldn't recommend them enough!"
+            </p>
+            <div class="client-profile">
+              <div class="client-avatar">AM</div>
+              <div class="client-info">
+                <h4>Aman Malhotra</h4>
+                <span>Architect • Sector 45</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Got Questions?</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Everything you need to know about our laundry and dry cleaning process.</p>
+        </div>
+
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-header" onclick="toggleFAQ(this)">
+              <h3>How does doorstep pickup and delivery work?</h3>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-body">
+              <p>When you book online, our valet arrives at your designated time slot with a hygienic laundry bag. We verify your items, tag them, and return them cleaned, pressed, and hung at your doorstep within 24 hours.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-header" onclick="toggleFAQ(this)">
+              <h3>Will I receive an order receipt and confirmation in my Gmail?</h3>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-body">
+              <p>Yes! As soon as you submit your booking, an automated order confirmation slip is emailed directly to your specified Gmail with your unique Order ID, scheduled pickup slot, address, and itemized bill.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-header" onclick="toggleFAQ(this)">
+              <h3>What if I need urgent laundry within hours?</h3>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-body">
+              <p>We offer an Express 6-Hour Delivery option for a nominal surcharge of ₹99. Just tick the "Express 6-Hour Delivery" checkbox in your cart before booking.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-header" onclick="toggleFAQ(this)">
+              <h3>How do you care for delicate items and designer garments?</h3>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-body">
+              <p>All luxury wear, silks, woolens, and heavily embroidered items undergo individual fabric inspection and are cleaned using gentle hydrocarbon solvent dry cleaning methods without harsh agitation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER BANNER -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-box">
+          <div class="newsletter-info">
+            <h2>Get 10% Off Your First Order</h2>
+            <p>Subscribe to our laundry club for monthly fabric care tips and exclusive member discounts.</p>
+          </div>
+          <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" id="newsletterEmail" placeholder="Enter your email address..." required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#hero" class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-icon"><i class="fas fa-soap"></i></div>
+            <div class="brand-name">Luxe<span>Wash</span></div>
+          </a>
+          <p>
+            Redefining garment care with eco-friendly cleaning, precision steam press, and frictionless 24h doorstep pickup.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#why-us">Why Choose Us</a></li>
+            <li><a href="#testimonials">Customer Reviews</a></li>
+            <li><a href="#faq">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="#services">Dry Cleaning</a></li>
+            <li><a href="#services">Wash & Fold</a></li>
+            <li><a href="#services">Steam Pressing</a></li>
+            <li><a href="#services">Stain Removal</a></li>
+            <li><a href="#services">Bridal & Couture</a></li>
+            <li><a href="#services">Blankets & Linens</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Get in Touch</h3>
+          <ul class="contact-info-list">
+            <li>
+              <i class="fas fa-location-dot"></i>
+              <span>Plot 42, Service Boulevard, Metro City</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>+91 98765 43210 / 011-23456789</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>support@luxewash.in</span>
+            </li>
+            <li>
+              <i class="fas fa-clock"></i>
+              <span>Mon - Sun: 7:00 AM - 10:00 PM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 LuxeWash Laundry Services Pvt. Ltd. All rights reserved.</p>
+        <p>Built for production deployment on Netlify & GitHub Pages.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DIGITAL ORDER RECEIPT MODAL -->
+  <div class="modal-overlay" id="receiptModal" role="dialog" aria-modal="true">
+    <div class="receipt-modal">
+      <button class="modal-close-btn" onclick="closeReceiptModal()" aria-label="Close Modal">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="receipt-header">
+        <div class="receipt-check-icon">
+          <i class="fas fa-check"></i>
+        </div>
+        <h2>Pickup Scheduled!</h2>
+        <p>Order details have been generated and sent to your Gmail.</p>
+      </div>
+
+      <div class="receipt-box">
+        <div class="receipt-detail-row bold">
+          <span>Order ID</span>
+          <span id="receiptOrderId">#LND-000000</span>
+        </div>
+        <div class="receipt-detail-row">
+          <span>Customer</span>
+          <span id="receiptCustName">-</span>
+        </div>
+        <div class="receipt-detail-row">
+          <span>Email</span>
+          <span id="receiptCustEmail">-</span>
+        </div>
+        <div class="receipt-detail-row">
+          <span>Contact</span>
+          <span id="receiptCustPhone">-</span>
+        </div>
+        <div class="receipt-detail-row">
+          <span>Scheduled Pickup</span>
+          <span id="receiptPickupDate">-</span>
+        </div>
+        <div class="receipt-detail-row">
+          <span>Pickup Address</span>
+          <span id="receiptAddress" style="text-align: right; max-width: 60%;">-</span>
+        </div>
+
+        <!-- Items Breakdown -->
+        <div class="receipt-items-list" id="receiptItems">
+          <!-- Populated via script.js -->
+        </div>
+
+        <div class="receipt-detail-row">
+          <span>Subtotal</span>
+          <span id="receiptSubtotal">₹0</span>
+        </div>
+        <div class="receipt-detail-row" style="color: var(--accent-emerald);">
+          <span>Discount</span>
+          <span id="receiptDiscount">₹0</span>
+        </div>
+        <div class="receipt-detail-row">
+          <span>Delivery</span>
+          <span id="receiptDelivery">FREE</span>
+        </div>
+        <div class="receipt-detail-row bold" style="font-size: 1.1rem; padding-top: 8px; border-top: 1px dashed var(--border);">
+          <span>Total Amount</span>
+          <span id="receiptGrandTotal" style="color: var(--primary);">₹0</span>
+        </div>
+      </div>
+
+      <div class="receipt-actions">
+        <button class="btn-print" onclick="printReceipt()">
+          <i class="fas fa-print"></i> Print Receipt
+        </button>
+        <button class="btn-done" onclick="closeReceiptModal()">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- EmailJS Browser SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <!-- Production App Script -->
+  <script src="script.js"></script>
+</body>
+</html>
