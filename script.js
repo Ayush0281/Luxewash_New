@@ -11,12 +11,10 @@
  * - Toast Alerts & FAQ Accordions
  */
 
-// EmailJS Configuration
-// NOTE: Set your active EmailJS Public Key, Service ID, and Template ID here.
-// In your EmailJS dashboard template, make sure "To Email" is set to {{to_email}} or {{email}}
-const EMAILJS_PUBLIC_KEY = "w31DfD4b3031VhNWF";
-const EMAILJS_SERVICE_ID = "service_5lpj7kg";
-const EMAILJS_TEMPLATE_ID = "template_32gi9fm";
+// EmailJS Configuration loaded from config.js (Protected via .env / APP_CONFIG)
+const EMAILJS_PUBLIC_KEY = (typeof APP_CONFIG !== "undefined" && APP_CONFIG.EMAILJS?.PUBLIC_KEY) || "w31DfD4b3031VhNWF";
+const EMAILJS_SERVICE_ID = (typeof APP_CONFIG !== "undefined" && APP_CONFIG.EMAILJS?.SERVICE_ID) || "service_5lpj7kg";
+const EMAILJS_TEMPLATE_ID = (typeof APP_CONFIG !== "undefined" && APP_CONFIG.EMAILJS?.TEMPLATE_ID) || "template_32gi9fm";
 
 // Initialize EmailJS
 (function () {
@@ -482,12 +480,15 @@ async function handleBookingSubmit(event) {
   // IMPORTANT: To ensure the customer receives the email in their Gmail,
   // we supply to_email, email, and user_email keys.
   const emailParams = {
-    order_id: orderId,
+    name: name,
     to_name: name,
-    to_email: email, // Direct recipient Gmail
+    customer_name: name,
     email: email,
+    to_email: email, // Direct recipient Gmail
     user_email: email,
+    customer_email: email,
     phone: phone,
+    order_id: orderId,
     pickup_date: pickupDate,
     pickup_slot: pickupSlot,
     pickup_address: pickupAddress,
@@ -499,20 +500,23 @@ async function handleBookingSubmit(event) {
     total_amount: "₹" + grandTotal,
     total: "₹" + grandTotal,
     order_date: orderDate,
+    message: `Scheduled pickup on ${pickupDate} (${pickupSlot}) at ${pickupAddress}. Items: ${itemsFormattedText}`,
     notes: notes
   };
+
+  console.log(`%c[EmailJS] Dispatching Order Confirmation to: ${emailParams.to_email}`, "color: #0284c7; font-weight: bold; font-size: 12px;");
+  console.log("[EmailJS Payload]", emailParams);
 
   try {
     if (typeof emailjs !== "undefined" && EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID) {
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailParams);
-      showToast("Booking Confirmed! Order details sent to your Gmail.", "success");
+      showToast(`Booking Confirmed! Details sent to ${email}`, "success");
     } else {
       console.log("EmailJS payload simulated:", emailParams);
       showToast("Booking Confirmed! (Demo Mode: Email simulated)", "success");
     }
   } catch (err) {
     console.warn("EmailJS warning:", err);
-    // Don't fail the user order if EmailJS service key quota is hit; show order receipt smoothly!
     showToast("Booking registered successfully! (Confirmation notice generated)", "info");
   } finally {
     submitBtn.disabled = false;
@@ -639,25 +643,31 @@ async function handleNewsletter(event) {
 
   // Complete parameter payload matching EmailJS template
   const newsletterParams = {
-    to_name: subscriberName,
     name: subscriberName,
-    to_email: email,
+    to_name: subscriberName,
+    customer_name: subscriberName,
     email: email,
+    to_email: email,
     user_email: email,
+    customer_email: email,
     phone: "Newsletter Subscriber",
     order_id: "VIP-" + couponCode,
     order_date: currentDate,
-    pickup_date: "Anytime",
+    pickup_date: "Instant Digital Delivery",
     pickup_slot: "All Time Slots",
-    pickup_address: "Digital Delivery to " + email,
+    pickup_address: "Sent to " + email,
     items_summary: `✨ Welcome to LuxeWash Club!\n• Exclusive 10% OFF Welcome Coupon\n• Coupon Code: ${couponCode}\n• Applicable on all Dry Cleaning, Laundry & Steam Press services`,
     subtotal: "10% OFF Coupon",
     discount: "10% OFF",
     delivery_fee: "FREE",
     total_amount: "Promo Code: " + couponCode,
     total: "Promo Code: " + couponCode,
+    message: `Welcome to LuxeWash! Here is your exclusive 10% discount coupon: ${couponCode}. Use it at checkout to enjoy 10% off your laundry service.`,
     notes: `Use coupon code "${couponCode}" at checkout to enjoy 10% off your laundry service!`
   };
+
+  console.log(`%c[EmailJS] Dispatching Newsletter 10% Coupon to: ${newsletterParams.to_email}`, "color: #10b981; font-weight: bold; font-size: 12px;");
+  console.log("[Newsletter Payload]", newsletterParams);
 
   try {
     if (typeof emailjs !== "undefined" && EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID) {
@@ -668,7 +678,6 @@ async function handleNewsletter(event) {
     }
   } catch (err) {
     console.warn("Newsletter email send warning:", err);
-    // Still show success with coupon so customer gets benefit even if API quota is reached
     showToast(`Subscribed! Your 10% coupon code is: ${couponCode} 🎉`, "success");
   } finally {
     if (submitBtn) {

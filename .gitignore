@@ -1,0 +1,15 @@
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+config.local.js
+
+# Dependencies & Build artifacts
+node_modules/
+dist/
+build/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+*.log
