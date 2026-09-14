@@ -65,5 +65,5 @@ An ultra-modern, dynamic, and production-ready web application built for on-dema
 
 ## 📄 License & Credits
 
-Developed with ❤️ by **Ayush Sharma (Sarthak Rana)**.  
+Developed with ❤️ by **Sarthak Rana**.  
 All rights reserved © 2026 LuxeWash.
