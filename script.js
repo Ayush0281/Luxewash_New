@@ -402,11 +402,14 @@ function applyCoupon() {
   if (code === "WELCOME20") {
     appliedCoupon = { code: "WELCOME20", discount: 0.2, type: "percent" };
     showToast("Promo applied: 20% OFF your order! 🎉", "success");
+  } else if (code === "WELCOME10") {
+    appliedCoupon = { code: "WELCOME10", discount: 0.1, type: "percent" };
+    showToast("Newsletter Promo applied: 10% OFF your order! 🎉", "success");
   } else if (code === "FRESH50") {
     appliedCoupon = { code: "FRESH50", discount: 50, type: "flat" };
     showToast("Promo applied: ₹50 Flat OFF! 🎉", "success");
   } else {
-    showToast("Invalid promo code. Try WELCOME20 or FRESH50", "error");
+    showToast("Invalid promo code. Try WELCOME20, WELCOME10 or FRESH50", "error");
     return;
   }
 
@@ -603,10 +606,12 @@ function toggleFAQ(element) {
   }
 }
 
-// --- NEWSLETTER SUBSCRIPTION ---
-function handleNewsletter(event) {
+// --- NEWSLETTER SUBSCRIPTION VIA EMAILJS ---
+async function handleNewsletter(event) {
   event.preventDefault();
   const input = document.getElementById("newsletterEmail");
+  const form = event.target;
+  const submitBtn = form.querySelector("button[type='submit']");
   if (!input) return;
   const email = input.value.trim();
 
@@ -616,8 +621,62 @@ function handleNewsletter(event) {
     return;
   }
 
-  showToast("Thank you for subscribing! 10% coupon code sent to your email.", "success");
-  input.value = "";
+  const originalBtnText = submitBtn ? submitBtn.innerHTML : "Subscribe";
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+  }
+
+  const rawName = email.split("@")[0].replace(/[._0-9]/g, " ").trim() || "Valued Customer";
+  const subscriberName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
+  const couponCode = "WELCOME10";
+  const currentDate = new Date().toLocaleDateString("en-IN", {
+    weekday: "short",
+    year: "numeric",
+    month: "short",
+    day: "numeric"
+  });
+
+  // Complete parameter payload matching EmailJS template
+  const newsletterParams = {
+    to_name: subscriberName,
+    name: subscriberName,
+    to_email: email,
+    email: email,
+    user_email: email,
+    phone: "Newsletter Subscriber",
+    order_id: "VIP-" + couponCode,
+    order_date: currentDate,
+    pickup_date: "Anytime",
+    pickup_slot: "All Time Slots",
+    pickup_address: "Digital Delivery to " + email,
+    items_summary: `✨ Welcome to LuxeWash Club!\n• Exclusive 10% OFF Welcome Coupon\n• Coupon Code: ${couponCode}\n• Applicable on all Dry Cleaning, Laundry & Steam Press services`,
+    subtotal: "10% OFF Coupon",
+    discount: "10% OFF",
+    delivery_fee: "FREE",
+    total_amount: "Promo Code: " + couponCode,
+    total: "Promo Code: " + couponCode,
+    notes: `Use coupon code "${couponCode}" at checkout to enjoy 10% off your laundry service!`
+  };
+
+  try {
+    if (typeof emailjs !== "undefined" && EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID) {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, newsletterParams);
+      showToast(`Welcome! 10% coupon code sent to ${email} 🎉`, "success");
+    } else {
+      showToast(`Subscribed! Use code: ${couponCode} for 10% off 🎉`, "success");
+    }
+  } catch (err) {
+    console.warn("Newsletter email send warning:", err);
+    // Still show success with coupon so customer gets benefit even if API quota is reached
+    showToast(`Subscribed! Your 10% coupon code is: ${couponCode} 🎉`, "success");
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+    }
+    input.value = "";
+  }
 }
 
 // --- TOAST ALERTS ---
