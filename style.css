@@ -1515,10 +1515,32 @@ header {
 }
 
 .social-btn:hover {
-  background: var(--primary);
   color: #fff;
-  border-color: var(--primary);
   transform: translateY(-3px);
+}
+
+.social-btn.facebook:hover {
+  background: #1877f2;
+  border-color: #1877f2;
+  box-shadow: 0 4px 14px rgba(24, 119, 242, 0.4);
+}
+
+.social-btn.instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  border-color: #dc2743;
+  box-shadow: 0 4px 14px rgba(220, 39, 67, 0.4);
+}
+
+.social-btn.twitter:hover {
+  background: #1da1f2;
+  border-color: #1da1f2;
+  box-shadow: 0 4px 14px rgba(29, 161, 242, 0.4);
+}
+
+.social-btn.whatsapp:hover {
+  background: #25d366;
+  border-color: #25d366;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
 }
 
 .footer-bottom {
