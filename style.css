@@ -87,6 +87,19 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Global Grid Track Overflow Prevention */
+.hero-grid > *,
+.achievements-grid > *,
+.steps-grid > *,
+.service-grid > *,
+.features-grid > *,
+.testimonials-grid > *,
+.booking-layout > *,
+.footer-grid > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -723,6 +736,19 @@ header {
   grid-template-columns: 1.25fr 0.95fr;
   gap: 36px;
   align-items: start;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.booking-layout > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.service-catalog {
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
 }
 
 /* Service Catalog Tabs */
@@ -733,6 +759,10 @@ header {
   overflow-x: auto;
   padding-bottom: 6px;
   scrollbar-width: none;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  -webkit-overflow-scrolling: touch;
 }
 
 .service-categories::-webkit-scrollbar {
