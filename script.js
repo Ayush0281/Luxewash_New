@@ -209,11 +209,19 @@ function setupEventListeners() {
   const navMenu = document.getElementById("navMenu");
   if (mobileBtn && navMenu) {
     mobileBtn.addEventListener("click", () => {
-      navMenu.classList.toggle("open");
+      const isOpen = navMenu.classList.toggle("open");
+      const icon = mobileBtn.querySelector("i");
+      if (icon) {
+        icon.className = isOpen ? "fas fa-xmark" : "fas fa-bars";
+      }
     });
     // Close mobile nav on link click
     document.querySelectorAll(".nav-link").forEach(link => {
-      link.addEventListener("click", () => navMenu.classList.remove("open"));
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("open");
+        const icon = mobileBtn.querySelector("i");
+        if (icon) icon.className = "fas fa-bars";
+      });
     });
   }
 

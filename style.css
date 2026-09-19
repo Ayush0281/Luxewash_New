@@ -1737,16 +1737,57 @@ header {
 .toast-error i { color: var(--accent-rose); }
 .toast-info i { color: var(--primary); }
 
-/* --- RESPONSIVE MEDIA QUERIES --- */
+/* --- COMPREHENSIVE RESPONSIVE MEDIA QUERIES --- */
+
+/* Tablets & Small Laptops (max-width: 1024px) */
 @media (max-width: 1024px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 76px;
+    left: 0;
+    width: 100%;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 28px 20px;
+    gap: 18px;
+    transform: translateY(-150%);
+    transition: transform var(--transition);
+    box-shadow: var(--shadow-xl);
+    z-index: 999;
+  }
+
+  .nav-menu.open {
+    transform: translateY(0);
+  }
+
+  .nav-link {
+    font-size: 1.05rem;
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 40px;
   }
 
   .hero-desc {
     margin-left: auto;
     margin-right: auto;
+    max-width: 600px;
   }
 
   .hero-actions {
@@ -1755,6 +1796,8 @@ header {
 
   .hero-trust-bar {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
   .booking-layout {
@@ -1781,39 +1824,43 @@ header {
 
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
 }
 
+/* Mobile Devices (max-width: 768px) */
 @media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+
+  .hero {
+    padding: 40px 0 30px;
+  }
+
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
   }
 
-  .nav-menu {
-    position: fixed;
-    top: 76px;
-    left: 0;
-    width: 100%;
-    background: var(--bg-card);
-    border-bottom: 1px solid var(--border);
-    flex-direction: column;
-    padding: 24px 0;
-    gap: 20px;
-    transform: translateY(-150%);
-    transition: transform var(--transition);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .nav-menu.open {
-    transform: translateY(0);
-  }
-
-  .mobile-menu-btn {
-    display: block;
+  .hero-pill {
+    font-size: 0.82rem;
+    padding: 6px 14px;
   }
 
   .service-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .service-categories {
+    gap: 8px;
+    padding-bottom: 10px;
+  }
+
+  .category-tab {
+    padding: 7px 14px;
+    font-size: 0.85rem;
   }
 
   .input-row {
@@ -1823,16 +1870,22 @@ header {
   .newsletter-box {
     flex-direction: column;
     text-align: center;
-    padding: 36px 20px;
+    padding: 32px 18px;
   }
 
   .newsletter-form {
     flex-direction: column;
+    width: 100%;
+  }
+
+  .newsletter-form input {
+    width: 100%;
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 32px;
   }
 
   .contact-info-list li {
@@ -1846,10 +1899,67 @@ header {
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+    gap: 12px;
+  }
+
+  .badge-top-right {
+    top: 5px;
+    right: 5px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .badge-bottom-left {
+    bottom: 5px;
+    left: 5px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .modal-card, .receipt-modal {
+    width: 94%;
+    max-height: 88vh;
+    padding: 20px 16px;
+    overflow-y: auto;
   }
 }
 
+/* Small SmartPhones (max-width: 480px) */
 @media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .brand-name {
+    font-size: 1.25rem;
+  }
+
+  .brand-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+
+  .cart-trigger-btn span:not(.cart-badge) {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
   .achievements-grid,
   .steps-grid,
   .features-grid {
@@ -1859,7 +1969,7 @@ header {
   .achievement-box {
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    padding-bottom: 20px;
+    padding-bottom: 18px;
   }
 
   .achievement-box:last-child {
@@ -1867,7 +1977,29 @@ header {
   }
 
   .badge-top-right, .badge-bottom-left {
-    display: none;
+    position: static;
+    margin: 10px auto;
+    display: inline-flex;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .service-card {
+    padding: 16px;
+  }
+
+  .service-card-top {
+    gap: 10px;
+  }
+
+  .service-icon-box {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .booking-panel {
+    padding: 18px 14px;
   }
 }
 
