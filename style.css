@@ -1848,6 +1848,16 @@ header {
     padding: 6px 14px;
   }
 
+  .hero-image-card {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 18px;
+  }
+
+  .section-header {
+    margin-bottom: 30px;
+  }
+
   .service-grid {
     grid-template-columns: 1fr;
     gap: 16px;
