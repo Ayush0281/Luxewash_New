@@ -1,0 +1,109 @@
+/* ==========================================================================
+   RESPONSIVE FLUID GRID SYSTEM & LAYOUT BOILERPLATE (grid.css)
+   ========================================================================== */
+
+/* --- SECTIONS & GROUPING --- */
+.section {
+  clear: both;
+  padding: 80px 0;
+  margin: 0px;
+  width: 100%;
+}
+
+.group:before,
+.group:after,
+.row:before,
+.row:after {
+  content: "";
+  display: table;
+}
+
+.group:after,
+.row:after {
+  clear: both;
+}
+
+.group,
+.row {
+  zoom: 1; /* For IE 6/7 */
+}
+
+/* --- GRID CONTAINER --- */
+.grid-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* --- ROW DEFINITIONS --- */
+.row {
+  max-width: 1140px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+/* --- COLUMN UNITS --- */
+.col {
+  display: block;
+  float: left;
+  flex: 1;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* --- FLUID SPAN SYSTEM --- */
+.span-1-of-1 { width: 100%; flex: 0 0 100%; }
+
+.span-1-of-2 { width: 49.2%; flex: 0 0 calc(50% - 10px); }
+.span-2-of-2 { width: 100%; flex: 0 0 100%; }
+
+.span-1-of-3 { width: 32.26%; flex: 0 0 calc(33.333% - 13.33px); }
+.span-2-of-3 { width: 66.13%; flex: 0 0 calc(66.666% - 6.66px); }
+.span-3-of-3 { width: 100%; flex: 0 0 100%; }
+
+.span-1-of-4 { width: 23.8%; flex: 0 0 calc(25% - 15px); }
+.span-2-of-4 { width: 49.2%; flex: 0 0 calc(50% - 10px); }
+.span-3-of-4 { width: 74.6%; flex: 0 0 calc(75% - 5px); }
+.span-4-of-4 { width: 100%; flex: 0 0 100%; }
+
+/* --- RESPONSIVE BREAKPOINTS FOR GRID --- */
+
+/* Tablets & Mobile (max-width: 768px) */
+@media only screen and (max-width: 768px) {
+  .section {
+    padding: 50px 0;
+  }
+  
+  .row {
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .span-1-of-2,
+  .span-1-of-3,
+  .span-2-of-3,
+  .span-1-of-4,
+  .span-2-of-4,
+  .span-3-of-4 {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+}
+
+/* Phones (max-width: 480px) */
+@media only screen and (max-width: 480px) {
+  .grid-container {
+    padding: 0 16px;
+  }
+  
+  .section {
+    padding: 40px 0;
+  }
+}
